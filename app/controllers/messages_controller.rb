@@ -13,13 +13,10 @@ class MessagesController < ApplicationController
   def create
     @message = Message.new(message_params)
 
-    respond_to do |format|
-      if @message.save
-        notice_message = 'successfully'
-      else
-        notice_message = 'unsuccessfully'
-      end
-      format.html { redirect_to messages_url, notice: "Message was #{notice_message} created." }
+    if @message.save
+      redirect_to messages_url, notice: "Message was successfully created."
+    else
+      redirect_to messages_url, alert: "Message was unsuccessfully created."
     end
   end
 
