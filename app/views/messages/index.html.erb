@@ -1,0 +1,15 @@
+<p id="notice"><%= notice %></p>
+
+<h1>New Messages</h1>
+<%= render 'form' %>
+
+<h1>Listing Messages</h1>
+<% @messages.each do |message| %>
+  <hr>
+  <dl>
+    <dt>タイトル:</dt><dd><%= message.title %></dd>
+    <dt>投稿日:</dt><dd><%= message.created_at %></dd>
+    <dt>本文:</dt><dd><%= message.body %></dd>
+    <dt>投稿者:</dt><dd><%= message.signature %></dd>
+  </dl>
+<% end %>
